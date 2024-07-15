@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="introduction">Problems Detected {{ duration }}</h1>
+{{ table | safe }}
+<script>
+    columnHeaders = document.querySelectorAll('table > tbody> tr > th')
+    console.log(columnHeaders.length)
+    
+    columnHeaders.forEach(col => {
+        columnHeader = col.innerText;
+        col.innerHTML = `<a href='/displaySingle/${columnHeader}'>${columnHeader}</a>`
+    });
+
+    tableData = document.querySelectorAll('td')
+    tableData.forEach((data) => {
+        data.innerHTML = ''
+    });
+</script>
+{% endblock %}

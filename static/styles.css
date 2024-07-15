@@ -1,0 +1,52 @@
+* {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:focus {
+    color: red;
+}
+
+.table-container {
+    margin: 10px;
+}
+
+table {
+    margin-left: 10px;
+    min-width: 200px;
+    border-collapse: collapse;
+}
+
+.col_heading {
+    writing-mode: vertical-rl;
+    transform: rotateZ(180deg);
+    padding: 10px;
+}
+
+.row_heading {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 100px;
+}
+
+thead {
+    height: 100px;
+}
+
+thead .col_heading.level0 {
+    position: sticky;
+    top: 60px;
+}
+
+td {
+    width: 36px;
+    height: 36px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}

@@ -1,0 +1,12 @@
+Study ID,Last Run Date,Last Run Time,Last Successful Run Date,Last Successful Run Time,Next Run Date,Next Run Time,Occurrence,Estimated Execution Time,N: File Count,N: Total File Size (MB),Number of Stale Data Files Detected,Problem Detected
+Problem_Detected_Study,2024-05-10,00:30:00,2024-05-10,00:30:00,2024-05-11,00:30:00,Daily,00:00:00,68,65.26,0,problem
+No_Errors_Study,2024-05-10,01:00:00,2024-05-10,01:00:00,2024-05-11,01:00:00,Daily,00:00:00,61,1011.05,0,
+Weekly_Study_Not_Run,2024-05-07,01:20:00,2024-05-07,01:20:00,2024-05-14,01:05:00,Weekly,00:15:00,0,,0,
+Weekly_Study_No_Errors,2024-05-10,02:10:00,2024-05-10,02:10:00,2024-05-11,02:10:00,Weekly,00:00:00,53,110.11,0,
+Weekly_Study_Problem_Detected,2024-05-10,01:20:00,2024-05-10,01:20:00,2024-05-11,01:15:00,weekly,00:05:00,62,151.69,0,problem
+Problem_File_Size_Daily,2024-05-10,01:20:00,2024-05-10,01:20:00,2024-05-11,01:20:00,Daily,00:00:00,73,910.07,0,
+Problem_File_Count_Daily,2024-05-10,01:20:00,2024-05-10,01:20:00,2024-05-11,01:20:00,Daily,00:00:00,73,910.07,0,
+Problem_File_Size_Weekly,2024-05-10,01:20:00,2024-05-10,01:20:00,2024-05-11,01:20:00,Weekly,00:00:00,73,910.07,0,
+Problem_File_Count_Weekly,2024-05-10,01:20:00,2024-05-10,01:20:00,2024-05-11,01:20:00,Weekly,00:00:00,73,910.07,0,
+File_Size_Weekly_Not_Run,2024-05-10,01:20:00,2024-05-9,01:20:00,2024-05-11,01:20:00,Weekly,00:00:00,73,910.07,0,
+File_Count_Weekly_Not_Run,2024-05-10,01:20:00,2024-05-9,01:20:00,2024-05-11,01:20:00,Weekly,00:00:00,73,910.07,0,

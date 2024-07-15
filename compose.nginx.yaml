@@ -1,0 +1,26 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/nginx-dev/Dockerfile
+    volumes:
+      - ./:/app
+      - static_volume:/app/static
+    environment:
+      - TZ=America/New_York
+    expose:
+      - 5000
+    command: /bin/bash -c "cron && gunicorn --bind 0.0.0.0:5000 app:app"
+
+  nginx:
+    build: ./nginx-local
+    volumes:
+      - static_volume:/app/static
+    ports:
+      - 1337:80
+    depends_on:
+      - server
+
+volumes:
+  static_volume:
+
