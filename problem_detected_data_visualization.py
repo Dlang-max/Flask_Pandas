@@ -247,7 +247,7 @@ def highlight_errors(val):
         a given td HTML element.
     """
     color_dict = {'E': "red", "NR" : "gray", 'G' : "green"}
-    return f"background-color: {color_dict[val] if val in color_dict else "gray"}"
+    return f"background-color: {color_dict[val] if val in color_dict else 'gray'}"
 
 def add_test_data_to_prev_data():
     """
