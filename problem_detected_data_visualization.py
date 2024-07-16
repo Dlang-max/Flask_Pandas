@@ -246,13 +246,8 @@ def highlight_errors(val):
         str: Returns an f-String f"background-color: {color}" representing the CSS style of 
         a given td HTML element.
     """
-    color = "green"
-    if val == 'E':
-        color = "red"
-    elif val == "NR" or val != 'G':
-        color = "gray"
-
-    return f"background-color: {color}"
+    color_dict = {'E': "red", "NR" : "gray", 'G' : "green"}
+    return f"background-color: {color_dict[val] if val in color_dict else "gray"}"
 
 def add_test_data_to_prev_data():
     """
