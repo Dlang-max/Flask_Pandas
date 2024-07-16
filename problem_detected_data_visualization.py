@@ -172,8 +172,24 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
         problem_detected_df = pd.DataFrame(problem_detected_df.loc[study_id]).T
 
     styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
+    # Color Dates yellow here:
+    styled_problem_detected_df.apply_index(color_dates, axis=1)
     return styled_problem_detected_df.to_html(escape=False)
 
+def color_dates(row):
+    column_styles = []
+    length = len(row)
+    for i, date in enumerate(row):
+        if i == 0 and length > 1 and abs((row[i + 1] - date).days) > 1:
+            column_styles.append("color: yellow;")
+        elif i == length - 1 and length > 1 and abs((row[i - 1] - date).days) > 1:
+            column_styles.append("color: yellow;")
+        elif i > 0 and i < length - 1 and (abs((row[i + 1] - date).days) > 1 or abs((row[i - 1] - date).days) > 1):
+            column_styles.append("color: yellow;")
+        else:
+            column_styles.append("color: white;")
+            
+    return column_styles
 
 def build_prev_data_dict(row):
     """
