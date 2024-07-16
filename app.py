@@ -26,7 +26,7 @@ def display_past_month():
 
     Returns:
         str: Returns a rendered template of home.html that displays 
-        todays_problem_detected_df as HTML
+        todays_problem_detected_df as an HTML table
     """
     return render_template("home.html", table=past_month_problem_detected_df, duration="in Past Month")
 
@@ -37,7 +37,7 @@ def display_today():
 
     Returns:
         str: Returns a rendered template of home.html that displays 
-        todays_problem_detected_df as HTML
+        todays_problem_detected_df as an HTML table
     """
     return render_template("home.html", table=todays_problem_detected_HTML, duration="Today")
 
@@ -79,4 +79,8 @@ def display_single(col):
 
 @app.cli.command()
 def build_todays_df():
+    """
+    Run by a cron job every day at 10:00 AM EST. Reloads the Flask app and builds
+    a new problem_detected_df with data entries from the current date.
+    """
     print("Building Today's Problem Detected DataFrame")
