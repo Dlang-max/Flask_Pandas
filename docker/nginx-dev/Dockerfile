@@ -23,7 +23,6 @@ RUN chmod +x /etc/cron.d/cronjob
 RUN crontab /etc/cron.d/cronjob
 RUN touch /var/log/cron.log
 
-
 WORKDIR /app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
