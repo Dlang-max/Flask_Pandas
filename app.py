@@ -19,7 +19,7 @@ past_month_problem_detected_df = get_html_for_problem_detected_df(problem_detect
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET'])
+@app.route("/", methods=["GET"])
 def display_past_month():
     """
     Displays past_month_problem_detected_df for all studies
@@ -30,7 +30,7 @@ def display_past_month():
     """
     return render_template("home.html", table=past_month_problem_detected_df, duration="in Past Month")
 
-@app.route("/today", methods=['GET'])
+@app.route("/today", methods=["GET"])
 def display_today():
     """
     Displays todays_problem_detected_df for all studies
@@ -41,7 +41,7 @@ def display_today():
     """
     return render_template("home.html", table=todays_problem_detected_HTML, duration="Today")
 
-@app.route("/displaySingle/<col>", methods=['GET'])
+@app.route("/displaySingle/<col>", methods=["GET"])
 def display_single(col):
     """
     Displays a given study's "Occurrence", "Last Successful Run Date",

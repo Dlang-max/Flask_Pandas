@@ -62,7 +62,7 @@ def build_df_from_csv_files(path_to_csv_directory=DATA_DIRECTORY, testing=False)
 
     return df 
 
-def get_date_of_file(file=''):
+def get_date_of_file(file=""):
     """
     Parses a file's name and returns the date associated with a file. 
     Data files have the naming convention: NRG_N_TODAY_COMP_YYYYMMDD.csv
@@ -73,7 +73,7 @@ def get_date_of_file(file=''):
     Returns:
         datetime.date: The date associated with a CSV file
     """
-    date_string = file[file.rindex('_') + 1 : file.rindex(".")]
+    date_string = file[file.rindex('_') + 1 : file.rindex('.')]
     date_time = datetime.strptime(date_string, '%Y%m%d')
     date = date_time.date()
     return date
@@ -148,7 +148,7 @@ def get_day_num_days_in_past(current_date=datetime.now().date(), num_days_in_pas
 
 # Get HTML for Today's Problems Detected
 # GET RID OF HARD CODED DATE
-def get_html_for_problem_detected_df(problem_detected_df, study_id='', num_days_in_past=1):
+def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_in_past=1):
     """
     Returns the HTML associated with a problem_detected_df
 
@@ -156,7 +156,7 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id='', num_days_
         problem_detected_df (pandas.DataFrame): The Pandas DataFrame representing whether
         a problem occurred with a study on a given date.
 
-        study_id (str): The id of a Study. Defaults to ''. Represents including data from all
+        study_id (str): The id of a Study. Defaults to "". Represents including data from all
         studies in the problem_detected_df.
 
         num_days_in_past (int): The number of days that the returned problem_detected_df
@@ -168,7 +168,7 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id='', num_days_
     """
     problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, current_date="2024-07-07", num_days_in_past=num_days_in_past)
 
-    if study_id != '':
+    if study_id != "":
         problem_detected_df = pd.DataFrame(problem_detected_df.loc[study_id]).T
 
     styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
