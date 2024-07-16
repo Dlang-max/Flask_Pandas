@@ -17,16 +17,18 @@ DAYS_IN_MONTH = 30
 # Build DataFrame from Data in CSV Files:
 def build_df_from_csv_files(path_to_csv_directory=DATA_DIRECTORY, testing=False):
     """
-    Constructs a Pandas DataFrame from CSV files in the data directory. The columns of this 
-    DataFrame are: "Study ID", "Date", "Occurrence", "Problem Detected", "Last Successful Run Date", 
-    "Last Successful Run Time", "Next Run Date", "Next Run Time".
+    Constructs a Pandas DataFrame from CSV files in a data directory. The columns of this 
+    DataFrame are: "Study ID", "Date", "Occurrence", "Problem Detected", "Last Successful
+    Run Date", "Last Successful Run Time", "Next Run Date", "Next Run Time", 
+    "N: File Count", and "N: Total File Size (MB)".
     
     Args:
         path_to_csv_directory (str): path to directory containing CSV files
         testing (bool): True if testing, False otherwise.
 
     Returns:
-        pandas.DataFrame: The Pandas DataFrame built from CSV files in the data directory
+        pandas.DataFrame: The Pandas DataFrame built by concatenating CSV files in the 
+        data directory
     """
     if testing:
         add_test_data_to_prev_data()
@@ -63,7 +65,7 @@ def build_df_from_csv_files(path_to_csv_directory=DATA_DIRECTORY, testing=False)
 def get_date_of_file(file=''):
     """
     Parses a file's name and returns the date associated with a file. 
-    Data files are have the naming convention: NRG_N_TODAY_COMP_YYYYMMDD.csv
+    Data files have the naming convention: NRG_N_TODAY_COMP_YYYYMMDD.csv
 
     Args:
         file (str): The name of a CSV file
@@ -148,7 +150,7 @@ def get_day_num_days_in_past(current_date=datetime.now().date(), num_days_in_pas
 # GET RID OF HARD CODED DATE
 def get_html_for_problem_detected_df(problem_detected_df, study_id='', num_days_in_past=1):
     """
-    Returns the HTML associated with the problem_detected_df Pandas DataFrame
+    Returns the HTML associated with a problem_detected_df
 
     Args:
         problem_detected_df (pandas.DataFrame): The Pandas DataFrame representing whether
@@ -181,7 +183,7 @@ def build_prev_data_dict(row):
 
     Args:
         row (pandas.Series): The data associated with a study on a given date. A slice
-        of the current_file_df generate while build_df_from_csv_files() runs.
+        of the current_file_df generated while build_df_from_csv_files() runs.
     """
     if row["Occurrence"] == "Weekly" and row["Last Successful Run Date"] != row["Date"].strftime("%Y-%m-%d"):
         return
@@ -190,13 +192,13 @@ def build_prev_data_dict(row):
 def format_problem_detected_column(row):
     """
     Returns the error status of a study on a given date. "NR" represents when a study
-    wasn't run on a given date. Either this study runs weekly or wasn't created yet.
-    'E' represents when a problem is detected with a study on a given date. A status 
-    of 'G' means no errors were detected for a study on a given date. 
+    wasn't run on a given date. Either this study runs weekly, wasn't created yet, or 
+    ended. 'E' represents when a problem is detected with a study on a given date. A
+    status of 'G' means no errors were detected for a study on a given date. 
 
     Args:
         row (pandas.Series): The data associated with a study on a given date. A slice
-        of the current_file_df generate while build_df_from_csv_files() runs.
+        of the current_file_df generated while build_df_from_csv_files() runs.
 
     Returns:
         str: The error status of a study on a given date.  
@@ -222,8 +224,8 @@ def is_invalid_files_upload(row, column="N: File Count"):
         row. Either "N: File Count" or "N: Total File Size (MB)" Defaults to "N: File Count".
 
     Returns:
-        bool: True if a study's file count or size is greater than or equal to
-        its previous file count or size. False otherwise.
+        bool: True if a study's file count or size is less than its previous file count
+        or size. False otherwise.
     """
     study_id = row["Study ID"]
     file_information = row[column]
@@ -232,7 +234,7 @@ def is_invalid_files_upload(row, column="N: File Count"):
 
 def highlight_errors(val):
     """
-    Returns a CSS style for background-color of a td HTML element when 
+    Returns a CSS style for the background-color of a td HTML element when 
     get_html_for_problem_detected_df() runs. Each td HTML element represents the problem
     detected status of a given study on a given date. If this status is 'E', the td gets 
     colored "red". If it's "NR", its colored "gray". And if its 'G', its colored "green".
