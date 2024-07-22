@@ -16,6 +16,11 @@ services:
     build: ./nginx-local
     volumes:
       - static_volume:/app/static
+      - ./nginx-local/nginx-templates:/etc/nginx/templates
+    environment:
+      # Change path to staticfiles here
+      # https://github.com/docker-library/docs/tree/master/nginx#using-environment-variables-in-nginx-configuration-new-in-119
+      - STATIC_FILE_PATH=/app/static/
     ports:
       - 1337:80
     depends_on:
