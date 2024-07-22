@@ -175,10 +175,10 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
     styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
     
     # Color the dates surrounding a missing date yellow
-    styled_problem_detected_df.apply_index(color_dates, axis=1)
+    styled_problem_detected_df.apply_index(highlight_dates, axis=1)
     return styled_problem_detected_df.to_html(escape=False)
 
-def color_dates(row):
+def highlight_dates(row):
     """
     Returns a list of CSS styles for the column headers of problem_detected_df.
     Colors dates surrounding missing dates yellow. 
