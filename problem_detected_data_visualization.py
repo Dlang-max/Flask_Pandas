@@ -170,13 +170,28 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
 
     if study_id != "":
         problem_detected_df = pd.DataFrame(problem_detected_df.loc[study_id]).T
-
+    
+    # Color td HTML elements according to their error status
     styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
-    # Color Dates yellow here:
+    
+    # Color the dates surrounding a missing date yellow
     styled_problem_detected_df.apply_index(color_dates, axis=1)
     return styled_problem_detected_df.to_html(escape=False)
 
 def color_dates(row):
+    """
+    Returns a list of CSS styles for the column headers of problem_detected_df.
+    Colors dates surrounding missing dates yellow. 
+
+    Args:
+        row (pandas.Series): A pandas.Series containing the column headers of the 
+        problem_detected_df. 
+
+    Returns:
+        list of str: Returns a list of strs representing the styles of column headers in
+        the problem_detected_df. The ith index of this list corresponds to the style for
+        the ith column header.
+    """
     column_styles = []
     length = len(row)
     for i, date in enumerate(row):
