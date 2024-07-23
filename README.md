@@ -1,7 +1,7 @@
-# (Insert SRS "1.1 Software Title")
+# 1.1 Software Title
 Data Visualization of CTDD IT Server Data
 
-# (Insert SRS "1.1 Purpose")
+# 1.1 Purpose
 To do stuff
 
 ## Technical Overview
