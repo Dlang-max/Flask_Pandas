@@ -15,7 +15,7 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 ### Installation Instructions
 1. Install Docker 
 + To run this Flask app locally install [Docker Desktop](https://docs.docker.com/get-docker/).
-+ To run this Flask app on a remote server install [Docker Engine](https://docs.docker.com/engine/install/)
++ To run this Flask app on a remote server install [Docker Engine](https://docs.docker.com/engine/install/).
 
 2. Clone the git repository
 ```bash
@@ -31,7 +31,7 @@ cd "Data Visualization Flask App"/
 docker compose -f compose.nginx.yaml up -d --build
 ```
 
-5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT data transfers.
+5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT server data.
 
 
 ## Maintainer(s)
