@@ -6,18 +6,16 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 
 ## Technical Overview
 
-access CSV files for data directory
-use pandas to build a dataframe containing meta info.
-display this info using a Flask app
-Cron job runs every day at 10:00 AM EST to built today's dataframe.
-
-
 ### Technical Specifications
 + Containerization Platform: Docker for containerizing the application and managing deployment
 + Programming Languages: Python for backend, HTML, CSS, and JavaScript for frontend.
 + Important Python Packages: flask and pandas
 + Web Servers: Gunicorn to run Flask app, Nginx to handle HTTP requests and serve static CSS files.
-+ Operating System: Ubuntu 22.04 
++ Operating System: Ubuntu 22.04
+
+### Functionality
+The Flask app builds a pandas DataFrame using the previous 30 days worth of CSV files from the data directory. This pandas DataFrame contains metadata associated with all CTDD IT data transfers over the past 30 days. Using this data, the Flask app builds a new pandas DataFrame that represents whether a study's data transfer was successful, unsuccessful, or not run on a given date. This new pandas DataFrame gets displayed as an HTML table by the Flask app, allowing for easy visualization of CTDD IT data transfers. Each day a cron job runs at 10:00 AM EST to rebuild the pandas DataFrame using metadata from the current date. 
+
 
 ### Installation Instructions
 1. **Install Docker** 
