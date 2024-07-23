@@ -7,6 +7,7 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 ## Technical Overview
 
 ### Technical Specifications
++ Containerization Platform: Docker for containerizing the application and managing deployment
 + Programming Languages: Python for backend, HTML, CSS, and JavaScript for frontend.
 + Web Servers: Gunicorn to run Flask app, Nginx to handle requests and serve static CSS files.
 + Operating System: Ubuntu 22.04 
@@ -20,17 +21,17 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 ```bash
 git clone __repo_url__
 ```
-3. Move to the Data Visualization Flask App Directory
+3. Move into the Data Visualization Flask App Directory
 ```bash
-cd "Data Visualization Flask App Directory"/
+cd "Data Visualization Flask App"/
 ```
 
-4. Build and Spin Up Docker containers
+4. Build and run Docker containers
 ```bash
 docker compose -f compose.nginx.yaml up -d --build
 ```
 
-5. Navigate to [http://localhost:1337/](http://localhost:1337/)  
+5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT data transfers.
 
 
 ## Maintainer(s)
