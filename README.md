@@ -24,9 +24,9 @@ Cron job runs every day at 10:00 AM EST to built today's dataframe.
 + To run this Flask app locally install [Docker Desktop](https://docs.docker.com/get-docker/).
 + To run this Flask app on a remote server install [Docker Engine](https://docs.docker.com/engine/install/).
 
-2. **Clone the git repository**
+2. **Clone the git repository** ***Change***
 ```bash
-git clone __repo_url__
+git clone https://github.com/Dlang-max/Flask_Pandas.git
 ```
 3. **Move into the Data Visualization Flask App Directory**
 ```bash
@@ -38,7 +38,7 @@ cd "Data Visualization Flask App"/
 docker compose -f compose.nginx.yaml up -d --build
 ```
 
-5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT server data.
+5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT server data. ***Change***
 
 
 ## Maintainer(s)
