@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 PREV_DATA = {}
 TEST_FILE_COUNT = 1000
 TEST_FILE_SIZE = 10000
-DATA_DIRECTORY = "data_large"
+DATA_DIRECTORY = "data"
 COLUMNS = ["Study ID", "Date", "Occurrence", "Problem Detected", "Last Successful Run Date", 
            "Last Successful Run Time", "Next Run Date", "Next Run Time", "N: File Count", 
            "N: Total File Size (MB)"]

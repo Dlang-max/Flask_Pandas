@@ -7,7 +7,6 @@
 {{ table | safe }}
 <script>
     columnHeaders = document.querySelectorAll('table > tbody> tr > th')
-    console.log(columnHeaders.length)
     
     columnHeaders.forEach(col => {
         columnHeader = col.innerText;
