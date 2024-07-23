@@ -13,20 +13,20 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 + Operating System: Ubuntu 22.04 
 
 ### Installation Instructions
-1. Install Docker 
+1. **Install Docker** 
 + To run this Flask app locally install [Docker Desktop](https://docs.docker.com/get-docker/).
 + To run this Flask app on a remote server install [Docker Engine](https://docs.docker.com/engine/install/).
 
-2. Clone the git repository
+2. **Clone the git repository**
 ```bash
 git clone __repo_url__
 ```
-3. Move into the Data Visualization Flask App Directory
+3. **Move into the Data Visualization Flask App Directory**
 ```bash
 cd "Data Visualization Flask App"/
 ```
 
-4. Build and run Docker containers
+4. **Build and run Docker containers**
 ```bash
 docker compose -f compose.nginx.yaml up -d --build
 ```
