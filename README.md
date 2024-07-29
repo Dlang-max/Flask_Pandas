@@ -38,7 +38,7 @@ cd "Data Visualization Flask App"/
     #- DATE_STRING=2024-07-07
 ```
 
-+ For specific date data: Uncomment `RUNNING_WITH_DATE_STRING` and `DATE_STRING`. Ensure `DATE_STRING` is formatted as YYYY-MM-DD (intended to be the date associated with the last NRG_N_TODAY_COMP_YYYYMMDD.csv file in the data directory).
++ For specific date data: Uncomment `RUNNING_WITH_DATE_STRING` and `DATE_STRING`. Ensure `DATE_STRING` is formatted as YYYY-MM-DD (`DATE_STRING` is intended to be the date associated with the most recent NRG_N_TODAY_COMP_YYYYMMDD.csv file in the data directory).
 
 ```yaml
     - RUNNING_WITH_DATE_STRING=True
