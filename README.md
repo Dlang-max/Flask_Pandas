@@ -32,8 +32,33 @@ cd "Data Visualization Flask App"/
 ```
 
 4. **Open the compose.nginx.yaml file**
-+ Comment RUNNING_WITH_DATE_STRING and DATE_STRING if running with data from today's date
-+ Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if running with data from a specific date. DATE_STRING **MUST** be formatted as YYYY-MM-DD.
++ If running with real time data, comment RUNNING_WITH_DATE_STRING and DATE_STRING 
+
+```docker
+environment:
+    - TZ=America/New_York
+    
+    # Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if using a String to represent the current date
+    # DATE_STRING MUST have the format YYYY-MM-DD
+    # If commented, datetime.now().date() will be used to represent the current date.
+    
+    #- RUNNING_WITH_DATE_STRING=True
+    #- DATE_STRING=2024-07-07
+```
+
++ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING.DATE_STRING **MUST** be formatted as YYYY-MM-DD.
+
+```docker
+environment:
+    - TZ=America/New_York
+    
+    # Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if using a String to represent the current date
+    # DATE_STRING MUST have the format YYYY-MM-DD
+    # If commented, datetime.now().date() will be used to represent the current date.
+    
+    - RUNNING_WITH_DATE_STRING=True
+    - DATE_STRING=2024-07-07
+```
 
 5. **Build and run Docker containers**
 ```bash

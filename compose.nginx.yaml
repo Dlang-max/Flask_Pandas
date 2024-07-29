@@ -8,6 +8,7 @@ services:
       - static_volume:/app/static
     environment:
       - TZ=America/New_York
+      
       # Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if using a String to represent the current date
       # DATE_STRING MUST have the format YYYY-MM-DD
       # If commented, datetime.now().date() will be used to represent the current date.
