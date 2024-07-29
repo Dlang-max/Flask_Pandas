@@ -32,14 +32,15 @@ cd "Data Visualization Flask App"/
 ```
 
 4. **Open the compose.nginx.yaml file**
-+ If running with real time data, comment RUNNING_WITH_DATE_STRING and DATE_STRING 
++ If running with real time data, comment RUNNING_WITH_DATE_STRING and DATE_STRING.
 
 ```
     #- RUNNING_WITH_DATE_STRING=True
     #- DATE_STRING=2024-07-07
 ```
 
-+ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING.DATE_STRING **MUST** be formatted as YYYY-MM-DD.
++ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING. </br>
+DATE_STRING **MUST** be formatted as YYYY-MM-DD.
 
 ```
     - RUNNING_WITH_DATE_STRING=True
