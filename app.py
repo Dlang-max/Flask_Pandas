@@ -4,11 +4,9 @@ from datetime import datetime
 import time
 
 print(datetime.now().date(), flush=True)
-
 st = time.time()
 df = build_df_from_csv_files()
 et = time.time()
-
 print("Runtime Build DF: ", et - st, flush=True)
 
 
@@ -33,12 +31,16 @@ def display_past_month():
 @app.route("/today", methods=["GET"])
 def display_today():
     """
-    Displays todays_problem_detected_df for all studies
+    Displays todays_problem_detected_df for all studies. Page will be blank
+    if there is no data for today.
 
     Returns:
         str: Returns a rendered template of home.html that displays 
         todays_problem_detected_df as an HTML table
     """
+    
+    if todays_problem_detected_HTML == "":
+        return render_template("home.html", table=todays_problem_detected_HTML, duration="Today: NO DATA UPLOADED")
     return render_template("home.html", table=todays_problem_detected_HTML, duration="Today")
 
 @app.route("/displaySingle/<col>", methods=["GET"])
@@ -46,7 +48,7 @@ def display_single(col):
     """
     Displays a given study's "Occurrence", "Last Successful Run Date",
     "Last Successful Run Time", "Next Run Date", "Next Run Time", and its 
-    problem_detected_df over the past week and month. 
+    problem_detected_df over the past week and month.
 
     Args:
        col (str): a studies Study ID 
@@ -58,10 +60,19 @@ def display_single(col):
     """
     if col == '\xa0':
         return redirect("/", code=302)
-    
+        
+        
+    # Uncomment if using a String for the current date    
     study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.strptime("2024-07-07", "%Y-%m-%d").date())]
+    
+    # Comment if using a String for the current date    
+    # study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.now().date())]
+    
+    
     if study_run_info_df.empty:
-        return redirect("/", code=302)
+        past_week_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df, study_id=col, num_days_in_past=7)
+        past_month_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df, study_id=col, num_days_in_past=30)
+        return render_template("single.html", study_id=col, past_week_table=past_week_problem_detected_HTML, past_month_table=past_month_problem_detected_HTML)
     
     occurrence = study_run_info_df.iloc[-1]["Occurrence"]
     last_successful_run_date = study_run_info_df.iloc[-1]["Last Successful Run Date"]
@@ -72,8 +83,8 @@ def display_single(col):
     past_week_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df, study_id=col, num_days_in_past=7)
     past_month_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df, study_id=col, num_days_in_past=30)
 
-    return render_template("single.html", study_id=col, occurrence=occurrence, last_successful_run_date=last_successful_run_date,
-                           last_successful_run_time=last_successful_run_time, next_run_date=next_run_date, next_run_time=next_run_time, 
+    return render_template("single.html", study_id=col, metadata_dict={"occurrence" : occurrence, "last_successful_run_date" : last_successful_run_date,
+                           "last_successful_run_time" : last_successful_run_time, "next_run_date" : next_run_date, "next_run_time" : next_run_time},
                            past_week_table=past_week_problem_detected_HTML, past_month_table=past_month_problem_detected_HTML)
 
 
