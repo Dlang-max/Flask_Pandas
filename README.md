@@ -20,7 +20,6 @@ The Flask app builds a pandas DataFrame using the previous 30 days worth of CSV 
 ### Installation Instructions
 1. **Install Docker** 
 + To run this Flask app locally install [Docker Desktop](https://docs.docker.com/get-docker/).
-+ To run this Flask app on a remote server install [Docker Engine](https://docs.docker.com/engine/install/).
 
 2. **Clone the git repository** ***Change***
 ```bash
