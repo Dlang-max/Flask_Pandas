@@ -8,9 +8,9 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 
 ### Technical Specifications
 + Containerization Platform: Docker for containerizing the application and managing deployment
-+ Programming Languages: Python for backend, HTML, CSS, and JavaScript for frontend.
++ Programming Languages: Python for backend, HTML, CSS, and JavaScript for frontend
 + Important Python Packages: flask and pandas
-+ Web Servers: Gunicorn to run Flask app, Nginx to handle HTTP requests and serve static CSS files.
++ Web Servers: Gunicorn to run Flask app, Nginx to handle HTTP requests and serve static CSS files
 + Operating System: Ubuntu 22.04
 
 ### Functionality
