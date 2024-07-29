@@ -9,9 +9,11 @@ services:
     environment:
       - TZ=America/New_York
 
-      # Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if using a String to represent the current date
-      # DATE_STRING MUST have the format YYYY-MM-DD. If formatted improperly, datetime.now().date() will be used.
-      # If commented, datetime.now().date() will be used to represent the current date.
+      # Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if using a String to represent
+      # the current date. DATE_STRING MUST have the format YYYY-MM-DD and be within the 
+      # past 30 days (intended to be the date of the last CSV file in the data directory). 
+      # If formatted improperly, datetime.now().date() will be used. If commented, 
+      # datetime.now().date() will be used to represent the current date.
       
       - RUNNING_WITH_DATE_STRING=True
       - DATE_STRING=2024-07-07

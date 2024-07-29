@@ -19,7 +19,7 @@ The Flask app builds a pandas DataFrame using the previous 30 days worth of CSV 
 
 ### Installation Instructions
 1. **Install Docker** 
-+ To run this Flask app locally install [Docker Desktop](https://docs.docker.com/get-docker/).
++ To run this Flask app locally, install [Docker Desktop](https://docs.docker.com/get-docker/).
 
 2. **Clone the git repository** ***Change***
 ```bash
@@ -38,7 +38,7 @@ cd "Data Visualization Flask App"/
     #- DATE_STRING=2024-07-07
 ```
 
-+ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING. </br>
++ If running with data from a specific date (within past 30 days), uncomment RUNNING_WITH_DATE_STRING and DATE_STRING (intended to be the date of the last CSV file in the data directory). </br>
 DATE_STRING **MUST** be formatted as YYYY-MM-DD.
 
 ```
