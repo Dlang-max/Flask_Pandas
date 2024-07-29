@@ -25,7 +25,7 @@ The Flask app builds a pandas DataFrame using the previous 30 days worth of CSV 
 ```bash
 git clone https://github.com/Dlang-max/Flask_Pandas.git
 ```
-3. **Move into the Data Visualization Flask App Directory**
+3. **Move into the `Data Visualization Flask App` Directory**
 ```bash
 cd "Data Visualization Flask App"/
 ```
