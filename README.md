@@ -38,8 +38,8 @@ cd "Data Visualization Flask App"/
     #- DATE_STRING=2024-07-07
 ```
 
-+ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING (intended to be the date of the last CSV file in the data directory). </br>
-DATE_STRING **MUST** be formatted as YYYY-MM-DD.
++ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING (intended to be the date associated with the last CSV file in the data directory).
++ DATE_STRING **MUST** be formatted as YYYY-MM-DD. If formatted improperly, datetime.now().date() will be used.
 
 ```
     - RUNNING_WITH_DATE_STRING=True
