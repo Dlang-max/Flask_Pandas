@@ -1,7 +1,8 @@
-from flask import Flask, render_template, redirect
-from problem_detected_data_visualization import *
-from datetime import datetime
+import os
 import time
+from datetime import datetime
+from problem_detected_data_visualization import *
+from flask import Flask, render_template, redirect
 
 print(datetime.now().date(), flush=True)
 st = time.time()
@@ -13,7 +14,6 @@ print("Runtime Build DF: ", et - st, flush=True)
 problem_detected_df = get_problem_detected_df(df)
 todays_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df)
 past_month_problem_detected_df = get_html_for_problem_detected_df(problem_detected_df, num_days_in_past=30)
-
 
 app = Flask(__name__)
 
@@ -61,12 +61,13 @@ def display_single(col):
     if col == '\xa0':
         return redirect("/", code=302)
         
-        
-    # Uncomment if using a String for the current date    
-    study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.strptime("2024-07-07", "%Y-%m-%d").date())]
+    # Use either a date string "YYYY-MM-DD" or datetime.now().date() to build study_run_info_df
+    if os.getenv("RUNNING_WITH_DATE_STRING", 'False') == 'True':
+        DATE_STRING = os.getenv("DATE_STRING")
+        study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.strptime(DATE_STRING, "%Y-%m-%d").date())]
     
-    # Comment if using a String for the current date    
-    # study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.now().date())]
+    else:    
+        study_run_info_df = df[(df["Study ID"] == col) & (df["Date"] == datetime.now().date())]
     
     
     if study_run_info_df.empty:

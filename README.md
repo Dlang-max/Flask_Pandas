@@ -31,12 +31,16 @@ git clone https://github.com/Dlang-max/Flask_Pandas.git
 cd "Data Visualization Flask App"/
 ```
 
-4. **Build and run Docker containers**
+4. **Open the compose.nginx.yaml file**
++ Comment RUNNING_WITH_DATE_STRING and DATE_STRING if running with data from today's date
++ Uncomment RUNNING_WITH_DATE_STRING and DATE_STRING if running with data from a specific date. DATE_STRING **MUST** be formatted as YYYY-MM-DD.
+
+5. **Build and run Docker containers**
 ```bash
 docker compose -f compose.nginx.yaml up -d --build
 ```
 
-5. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT server data. ***Change***
+6. Navigate to [http://localhost:1337/](http://localhost:1337/) for visualization of CTDD IT server data. ***Change***
 
 
 ## Maintainer(s)

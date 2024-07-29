@@ -5,11 +5,11 @@
 {% block content %}
 <h1 class="introduction">{{ study_id }}</h1>
 {% if metadata_dict %}
-    <p>Runs: {{ occurrence }}</p>
-    <p>Last Successful Run Date: {{ last_successful_run_date }}</p>
-    <p>Last Successful Run Time: {{ last_successful_run_time }}</p>
-    <p>Next Run Date: {{ next_run_date }}</p>
-    <p>Next Run Time: {{ next_run_time }}</p>
+    <p>Runs: {{ metadata_dict["occurrence"] }}</p>
+    <p>Last Successful Run Date: {{ metadata_dict["last_successful_run_date"] }}</p>
+    <p>Last Successful Run Time: {{ metadata_dict["last_successful_run_time"] }}</p>
+    <p>Next Run Date: {{ metadata_dict["next_run_date"] }}</p>
+    <p>Next Run Time: {{ metadata_dict["next_run_time"] }}</p>
 {% else %}
     <h2>NO DATA UPLOADED TODAY</h2>
 {% endif %}

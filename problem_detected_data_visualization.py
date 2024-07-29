@@ -166,12 +166,14 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
         str: The HTML associated with the problem_detected_df
 
     """
-    # Uncomment if using String for current_date
-    problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, current_date="2024-07-07", num_days_in_past=num_days_in_past)
+    # Use either a date string "YYYY-MM-DD" or datetime.now().date() to build problem_detected_df
+    if os.getenv("RUNNING_WITH_DATE_STRING", 'False') == 'True':
+        DATE_STRING = os.getenv("DATE_STRING")
+        problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, current_date=DATE_STRING, num_days_in_past=num_days_in_past)
+    else:
+        problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, num_days_in_past=num_days_in_past)
 
-    # Comment if using String for current_date
-    # problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, num_days_in_past=num_days_in_past)
-
+    
     if problem_detected_df.empty:
         return ""
     
