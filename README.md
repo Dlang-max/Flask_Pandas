@@ -30,18 +30,17 @@ git clone https://github.com/Dlang-max/Flask_Pandas.git
 cd "Data Visualization Flask App"/
 ```
 
-4. **Open the compose.nginx.yaml file**
-+ If running with real time data, comment RUNNING_WITH_DATE_STRING and DATE_STRING.
+4. **Open the `compose.nginx.yaml` file**
++ For real-time data: Comment out `RUNNING_WITH_DATE_STRING` and `DATE_STRING`.
 
-```
+```yaml
     #- RUNNING_WITH_DATE_STRING=True
     #- DATE_STRING=2024-07-07
 ```
 
-+ If running with data from a specific date, uncomment RUNNING_WITH_DATE_STRING and DATE_STRING (intended to be the date associated with the last CSV file in the data directory: NRG_N_TODAY_COMP_YYYYMMDD.csv).
-+ DATE_STRING **MUST** be formatted as YYYY-MM-DD. If formatted improperly, datetime.now().date() will be used.
++ For specific date data: Uncomment `RUNNING_WITH_DATE_STRING` and `DATE_STRING`. Ensure `DATE_STRING` is formatted as YYYY-MM-DD.
 
-```
+```yaml
     - RUNNING_WITH_DATE_STRING=True
     - DATE_STRING=2024-07-07 #YYYY-MM-DD
 ```
