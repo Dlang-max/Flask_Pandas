@@ -84,8 +84,8 @@ def get_problem_detected_df(df):
     in the data directory and accesses the values from the "Problem Detected" column.
     It then unstacks the Pandas Series returned by this operation to create a Pandas 
     DataFrame with dates as columns and study ids as indices. The element associated
-    with each date and study id represents whether a problem occurred with a study on
-    a given date. 
+    with each date and study id represents whether a problem occurred with a study's
+    data transfer on a given date. 
 
     Args:
         df (pandas.DataFrame): The Pandas DataFrame built from CSV files in the data 
@@ -93,19 +93,19 @@ def get_problem_detected_df(df):
 
     Returns:
         pandas.DataFrame: Returns a Pandas DataFrame where each element represents whether 
-        a problem occurred with a study on a given date. 
+        a problem occurred with a study's data transfer on a given date. 
     """
     return df.groupby(["Study ID", "Date"])["Problem Detected"].last().unstack()
 
 def get_problem_detected_df_between_dates(problem_detected_df, current_date=datetime.now().date(), num_days_in_past=1):
     """
-    Returns a Pandas DataFrame representing whether a problem occurred with a study on
-    a given date. The dates of this DataFrame range from current_date to the date
-    num_days_in_past. 
+    Returns a Pandas DataFrame representing whether a problem occurred with a study's
+    data transfer on a given date. The dates of this DataFrame range from current_date
+    to the date num_days_in_past. 
 
     Args:
         problem_detected_df (pandas.DataFrame): The Pandas DataFrame representing whether
-        a problem occurred with a study on a given date.
+        a problem occurred with a study's data transfer on a given date.
 
         current_date (datetime.date or str): The current date. Defaults to today's date 
         in EST time. If inputting a String, it must be formatted as YYYY-MM-DD.
@@ -154,7 +154,7 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
 
     Args:
         problem_detected_df (pandas.DataFrame): The Pandas DataFrame representing whether
-        a problem occurred with a study on a given date.
+        a problem occurred with a study's data transfer on a given date.
 
         study_id (str): The id of a Study. Defaults to "". Represents including data from all
         studies in the problem_detected_df.
@@ -187,34 +187,6 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
     styled_problem_detected_df.apply_index(highlight_dates, axis=1)
     return styled_problem_detected_df.to_html(escape=False)
 
-def highlight_dates(row):
-    """
-    Returns a list of CSS styles for the column headers of problem_detected_df.
-    Colors dates surrounding missing dates yellow. 
-
-    Args:
-        row (pandas.Series): A pandas.Series containing the column headers of the 
-        problem_detected_df. 
-
-    Returns:
-        list of str: Returns a list of strs representing the styles of column headers in
-        the problem_detected_df. The ith index of this list corresponds to the style for
-        the ith column header.
-    """
-    column_styles = []
-    length = len(row)
-    for i, date in enumerate(row):
-        if i == 0 and length > 1 and abs((row[i + 1] - date).days) > 1:
-            column_styles.append("color: yellow;")
-        elif i == length - 1 and length > 1 and abs((row[i - 1] - date).days) > 1:
-            column_styles.append("color: yellow;")
-        elif i > 0 and i < length - 1 and (abs((row[i + 1] - date).days) > 1 or abs((row[i - 1] - date).days) > 1):
-            column_styles.append("color: yellow;")
-        else:
-            column_styles.append("color: white;")
-            
-    return column_styles
-
 def build_prev_data_dict(row):
     """
     Updates "N: File Count" and "N: Total File Size (MB)" in the PREV_DATA dictionary 
@@ -231,17 +203,18 @@ def build_prev_data_dict(row):
 
 def format_problem_detected_column(row):
     """
-    Returns the error status of a study on a given date. "NR" represents when a study
-    wasn't run on a given date. Either this study runs weekly, wasn't created yet, or 
-    ended. 'E' represents when a problem is detected with a study on a given date. A
-    status of 'G' means no errors were detected for a study on a given date. 
+    Returns the error status of a study's data transfer on a given date. "NR" represents
+    when a study wasn't run on a given date. Either this study runs weekly, wasn't 
+    created yet, or ended. 'E' represents when a problem is detected with a study's 
+    data transfer on a given date. A status of 'G' means no errors were detected for 
+    a study's data transfer on a given date. 
 
     Args:
         row (pandas.Series): The data associated with a study on a given date. A slice
         of the current_file_df generated while build_df_from_csv_files() runs.
 
     Returns:
-        str: The error status of a study on a given date.  
+        str: The error status of a study's data transfer on a given date.  
     """
     if row["Occurrence"] == "Weekly" and row["Last Successful Run Date"] != row["Date"].strftime("%Y-%m-%d") and pd.isnull(row["Problem Detected"]):
         return "NR"
@@ -276,11 +249,12 @@ def highlight_errors(val):
     """
     Returns a CSS style for the background-color of a td HTML element when 
     get_html_for_problem_detected_df() runs. Each td HTML element represents the problem
-    detected status of a given study on a given date. If this status is 'E', the td gets 
-    colored "red". If it's "NR", its colored "gray". And if its 'G', its colored "green".
+    detected status of a study's data transfer on a given date. If this status is 'E', 
+    the td gets colored "red". If it's "NR", its colored "gray". And if its 'G', its 
+    colored "green".
 
     Args:
-        val (str): The error status of a given study. 
+        val (str): The error status of a given study's data transfer. 
 
     Returns:
         str: Returns an f-String f"background-color: {color}" representing the CSS style of 
@@ -288,6 +262,35 @@ def highlight_errors(val):
     """
     color_dict = {'E': "red", "NR" : "gray", 'G' : "green"}
     return f"background-color: {color_dict[val] if val in color_dict else 'gray'}"
+
+def highlight_dates(row):
+    """
+    Returns a list of CSS styles for the column headers of problem_detected_df.
+    Colors dates surrounding missing dates yellow. 
+
+    Args:
+        row (pandas.Series): A pandas.Series containing the column headers of the 
+        problem_detected_df. 
+
+    Returns:
+        list of str: Returns a list of strs representing the styles of column headers in
+        the problem_detected_df. The ith index of this list corresponds to the style for
+        the ith column header.
+    """
+    column_styles = []
+    length = len(row)
+    for i, date in enumerate(row):
+        if i == 0 and length > 1 and abs((row[i + 1] - date).days) > 1:
+            column_styles.append("color: yellow;")
+        elif i == length - 1 and length > 1 and abs((row[i - 1] - date).days) > 1:
+            column_styles.append("color: yellow;")
+        elif i > 0 and i < length - 1 and (abs((row[i + 1] - date).days) > 1 or abs((row[i - 1] - date).days) > 1):
+            column_styles.append("color: yellow;")
+        else:
+            column_styles.append("color: white;")
+            
+    return column_styles
+
 
 def add_test_data_to_prev_data():
     """

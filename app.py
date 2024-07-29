@@ -12,7 +12,7 @@ print("Runtime Build DF: ", et - st, flush=True)
 
 
 problem_detected_df = get_problem_detected_df(df)
-todays_problem_detected_HTML = get_html_for_problem_detected_df(problem_detected_df)
+todays_problem_detected_df = get_html_for_problem_detected_df(problem_detected_df)
 past_month_problem_detected_df = get_html_for_problem_detected_df(problem_detected_df, num_days_in_past=30)
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def display_past_month():
 
     Returns:
         str: Returns a rendered template of home.html that displays 
-        todays_problem_detected_df as an HTML table
+        past_month_problem_detected_df as an HTML table
     """
     return render_template("home.html", table=past_month_problem_detected_df, duration="in Past Month")
 
@@ -39,9 +39,9 @@ def display_today():
         todays_problem_detected_df as an HTML table
     """
     
-    if todays_problem_detected_HTML == "":
-        return render_template("home.html", table=todays_problem_detected_HTML, duration="Today: NO DATA UPLOADED")
-    return render_template("home.html", table=todays_problem_detected_HTML, duration="Today")
+    if todays_problem_detected_df == "":
+        return render_template("home.html", table=todays_problem_detected_df, duration="Today: NO DATA UPLOADED")
+    return render_template("home.html", table=todays_problem_detected_df, duration="Today")
 
 @app.route("/displaySingle/<col>", methods=["GET"])
 def display_single(col):
