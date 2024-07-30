@@ -16,7 +16,7 @@ The purpose of the Data Visualization of CTDD IT Server Data Flask App is to dis
 ### Functionality
 The Flask app builds a pandas DataFrame using the previous 30 days worth of CSV files from the data directory. This pandas DataFrame contains metadata associated with all CTDD IT data transfers over the past 30 days. Using this data, the Flask app builds a new pandas DataFrame that represents whether a study's data transfer was successful, unsuccessful, or not run on a given date. This new pandas DataFrame gets displayed as an HTML table by the Flask app, allowing for easy visualization of CTDD IT data transfers. Each day a cron job runs at 10:00 AM EST to rebuild both pandas DataFrames using metadata from the current date.
 
-### Endpoints
+#### Endpoints
 + `/`: displays the error status of all data transfers over the past month
 + `/today`: displays the error status of all data transfers today
 + `/displaySingle/<col>`: displays the error status of a given study over the past week and month
