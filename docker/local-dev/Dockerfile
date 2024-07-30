@@ -16,16 +16,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
-
-# CRONJOB
-RUN apt-get update && apt-get -y install cron && apt-get install -y dos2unix
-COPY cronjob /etc/cron.d/cronjob
-RUN dos2unix /etc/cron.d/cronjob
-RUN chmod +x /etc/cron.d/cronjob
-RUN crontab /etc/cron.d/cronjob
-RUN touch /var/log/cron.log
-
-
 WORKDIR /app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
