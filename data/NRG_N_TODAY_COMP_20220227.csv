@@ -1,0 +1,71 @@
+Study ID,Last Run Date,Last Run Time,Last Successful Run Date,Last Successful Run Time,Next Run Date,Next Run Time,Occurrence,Estimated Execution Time,N: File Count,N: Total File Size (MB),Problem Detected
+NRG-BN001,2022-02-27,01:03:51,2022-02-27,01:03:51,2022-02-28,01:00:00,Daily,00:03:51,61.0,880.56,
+NRG-BN002,2022-02-22,01:13:51,2022-02-22,01:13:51,2022-03-01,01:05:00,Weekly,00:08:51,,,
+NRG-BN003,2022-02-27,01:13:51,2022-02-27,01:13:51,2022-02-28,01:10:00,Daily,00:03:51,51.0,80.87,
+NRG-BN005,2022-02-27,01:23:51,2022-02-27,01:23:51,2022-02-28,01:15:00,Daily,00:08:51,62.0,85.68,
+NRG-BN007,2022-02-27,01:23:51,2022-02-27,01:23:51,2022-02-28,01:20:00,Daily,00:03:51,73.0,500.72,
+NRG-BN009,2022-02-27,01:03:51,2022-02-27,01:03:51,2022-02-28,00:55:00,Daily,00:08:51,65.0,31.84,
+NRG-BR001,2022-02-22,01:33:51,2022-02-22,01:33:51,2022-03-01,01:25:00,Weekly,00:08:51,,,
+NRG-BR002,2022-02-27,02:33:51,2022-02-27,02:33:51,2022-02-28,02:30:00,Daily,00:03:51,55.0,132.98,
+NRG-BR003,2022-02-22,01:43:51,2022-02-22,01:43:51,2022-03-01,01:35:00,Weekly,00:08:51,,,
+NRG-BR004,2022-02-27,01:43:51,2022-02-27,01:43:51,2022-02-28,01:40:00,Daily,00:03:51,12.0,1442.24,
+NRG-BR005,2022-02-27,01:53:51,2022-02-27,01:53:51,2022-02-28,01:45:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-BR007,2022-02-27,01:53:51,2022-02-27,01:53:51,2022-02-28,01:50:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-CC003,2022-02-27,02:13:51,2022-02-27,02:13:51,2022-02-28,02:05:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-CC004,2022-02-27,02:13:51,2022-02-27,02:13:51,2022-02-28,02:10:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-CC007CD,2022-02-27,02:23:51,2022-02-27,02:23:51,2022-02-28,02:15:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-CC008,2022-02-27,02:23:51,2022-02-27,02:23:51,2022-02-28,02:20:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-CC009,2022-02-27,02:33:51,2022-02-27,02:33:51,2022-02-28,02:25:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-DT001,2022-02-27,02:33:51,2022-02-27,02:33:51,2022-02-28,02:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GI002,2022-02-22,02:43:51,2022-02-22,02:43:51,2022-03-01,02:35:00,Weekly,00:08:51,,,
+NRG-GI003,2022-02-27,02:43:51,2022-02-27,02:43:51,2022-02-28,02:40:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GI004,2022-02-27,02:53:51,2022-02-27,02:53:51,2022-02-28,02:50:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GI005,2022-02-22,03:03:51,2022-02-22,03:03:51,2022-03-01,02:55:00,Weekly,00:08:51,,,
+NRG-GI006,2022-02-27,03:03:51,2022-02-27,03:03:51,2022-02-28,03:00:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GI007,2022-02-27,04:43:51,2022-02-27,04:43:51,2022-02-28,04:40:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU002,2022-02-27,03:13:51,2022-02-27,03:13:51,2022-02-28,03:05:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU003,2022-02-27,03:13:51,2022-02-27,03:13:51,2022-02-28,03:10:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU005,2022-02-27,03:23:51,2022-02-27,03:23:51,2022-02-28,03:15:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU006,2022-02-27,03:23:51,2022-02-27,03:23:51,2022-02-28,03:20:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU007,2022-02-27,03:33:51,2022-02-27,03:33:51,2022-02-28,03:25:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU008,2022-02-27,03:33:51,2022-02-27,03:33:51,2022-02-28,03:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU009,2022-02-27,03:43:51,2022-02-27,03:43:51,2022-02-28,03:35:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GU010,2022-02-27,04:53:51,2022-02-27,04:53:51,2022-02-28,04:45:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY003,2022-02-22,01:13:51,2022-02-22,01:13:51,2022-03-01,00:55:00,Weekly,00:18:51,,,
+NRG-GY004,2022-02-22,00:53:51,2022-02-22,00:53:51,2022-03-01,00:50:00,Weekly,00:03:51,,,
+NRG-GY005,2022-02-27,00:53:51,2022-02-27,00:53:51,2022-02-28,00:45:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY006,2022-02-27,00:43:51,2022-02-27,00:43:51,2022-02-28,00:40:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY007,2022-02-27,00:43:51,2022-02-27,00:43:51,2022-02-28,00:35:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY009,2022-02-27,00:33:51,2022-02-27,00:33:51,2022-02-28,00:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY012,2022-02-27,00:33:51,2022-02-27,00:33:51,2022-02-28,00:25:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY014,2022-02-27,00:23:51,2022-02-27,00:23:51,2022-02-28,00:20:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY016,2022-02-27,00:23:51,2022-02-27,00:23:51,2022-02-28,00:15:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY017,2022-02-27,00:13:51,2022-02-27,00:13:51,2022-02-28,00:10:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY018,2022-02-27,01:13:51,2022-02-27,01:13:51,2022-02-28,01:05:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY019,2022-02-27,00:03:51,2022-02-27,00:03:51,2022-02-28,00:00:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY020,2022-02-27,00:33:51,2022-02-27,00:33:51,2022-02-28,00:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-GY021,2022-02-26,23:53:51,2022-02-26,23:53:51,2022-02-27,23:50:00,Daily,00:03:51,,,
+NRG-GY022,2022-02-26,23:53:51,2022-02-26,23:53:51,2022-02-27,23:45:00,Daily,00:08:51,,,
+NRG-GY023,2022-02-26,23:43:51,2022-02-26,23:43:51,2022-02-27,23:40:00,Daily,00:03:51,,,
+NRG-HN001,2022-02-27,05:03:51,2022-02-27,05:03:51,2022-02-28,05:00:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-HN002,2022-02-25,06:13:51,2022-02-25,06:13:51,2022-03-04,06:05:00,Weekly,00:08:51,,,
+NRG-HN003,2022-02-22,05:13:51,2022-02-22,05:13:51,2022-03-01,05:10:00,Weekly,00:03:51,,,
+NRG-HN004,2022-02-27,05:23:51,2022-02-27,05:23:51,2022-02-28,05:15:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-HN005,2022-02-27,05:23:51,2022-02-27,05:23:51,2022-02-28,05:20:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-HN006,2022-02-26,21:13:51,2022-02-26,21:13:51,2022-02-27,21:04:03,Daily,00:09:48,,,
+NRG-HN007,2022-02-27,05:33:51,2022-02-27,05:33:51,2022-02-28,05:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-HN008,2022-02-27,04:53:51,2022-02-27,04:53:51,2022-02-28,04:50:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-LU001,2022-02-22,05:43:51,2022-02-22,05:43:51,2022-03-01,05:35:00,Weekly,00:08:51,,,
+NRG-LU002,2022-02-26,15:33:51,2022-02-26,15:33:51,2022-02-27,15:30:12,Daily,00:03:39,,,
+NRG-LU003,2022-02-22,05:53:51,2022-02-22,05:53:51,2022-03-01,05:45:00,Weekly,00:08:51,,,
+NRG-LU004,2022-02-27,05:53:51,2022-02-27,05:53:51,2022-02-28,05:50:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-LU005,2022-02-27,06:03:51,2022-02-27,06:03:51,2022-02-28,05:55:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NRG-LU006,2022-02-27,06:03:51,2022-02-27,06:03:51,2022-02-28,06:00:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+NRG-LU007,2022-02-27,06:13:51,2022-02-27,06:13:51,2022-02-28,06:05:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+NSABP-B-55,2022-02-27,02:03:51,2022-02-27,02:03:51,2022-02-28,01:57:00,Daily,00:06:51,,,[B] Zip file process ran but missing files in N drive
+RTOG-1112,2022-02-27,06:13:51,2022-02-27,06:13:51,2022-02-28,06:10:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+RTOG-1115,2022-02-22,06:23:51,2022-02-22,06:23:51,2022-03-01,06:15:00,Weekly,00:08:51,,,
+RTOG-1216,2022-02-27,06:23:51,2022-02-27,06:23:51,2022-02-28,06:20:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+RTOG-1308,2022-02-27,06:33:51,2022-02-27,06:33:51,2022-02-28,06:25:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive
+S1418-E-01,2022-02-27,06:33:51,2022-02-27,06:33:51,2022-02-28,06:30:00,Daily,00:03:51,,,[B] Zip file process ran but missing files in N drive
+S1914-E-01,2022-02-27,06:43:51,2022-02-27,06:43:51,2022-02-28,06:35:00,Daily,00:08:51,,,[B] Zip file process ran but missing files in N drive

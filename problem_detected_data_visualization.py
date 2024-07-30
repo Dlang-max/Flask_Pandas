@@ -2,10 +2,12 @@ import os
 import pandas as pd
 from datetime import datetime, timedelta
 
-# Constants:
-PREV_DATA = {}
+# Testing Constants:
 TEST_FILE_COUNT = 1000
 TEST_FILE_SIZE = 10000
+
+# Constants:
+PREV_DATA = {}
 DATA_DIRECTORY = "data"
 COLUMNS = ["Study ID", "Date", "Occurrence", "Problem Detected", "Last Successful Run Date", 
            "Last Successful Run Time", "Next Run Date", "Next Run Time", "N: File Count", 
@@ -52,7 +54,7 @@ def build_df_from_csv_files(path_to_csv_directory=DATA_DIRECTORY, testing=False)
         # Format "Problem Detected" Column:
         current_file_df["Problem Detected"] = current_file_df.apply(format_problem_detected_column, axis=1)
 
-        # Keep change previous "N: File Count" and "N: Total File Size (MB)" to current file's:
+        # Change previous "N: File Count" and "N: Total File Size (MB)" to current file's:
         current_file_df.apply(build_prev_data_dict, axis=1)
 
         df = current_file_df.copy() if df.empty else pd.concat([current_file_df, df], ignore_index=True)
@@ -76,6 +78,7 @@ def get_date_of_file(file=""):
     date_string = file[file.rindex('_') + 1 : file.rindex('.')]
     date_time = datetime.strptime(date_string, '%Y%m%d')
     date = date_time.date()
+    
     return date
 
 def get_problem_detected_df(df):
@@ -119,6 +122,7 @@ def get_problem_detected_df_between_dates(problem_detected_df, current_date=date
         current_date to the date num_days_in_past.
     """
     prev_date, current_date = get_day_num_days_in_past(current_date=current_date, num_days_in_past=num_days_in_past)
+    
     return problem_detected_df.T.loc[prev_date:current_date].T
 
 def get_day_num_days_in_past(current_date=datetime.now().date(), num_days_in_past=1):
@@ -147,7 +151,6 @@ def get_day_num_days_in_past(current_date=datetime.now().date(), num_days_in_pas
     return (prev_date, current_date)
 
 # Get HTML for Today's Problems Detected
-# GET RID OF HARD CODED DATE
 def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_in_past=1):
     """
     Returns the HTML associated with a problem_detected_df
@@ -164,7 +167,6 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
 
     Returns:
         str: The HTML associated with the problem_detected_df
-
     """
     # Use either a date string "YYYY-MM-DD" or datetime.now().date() to build problem_detected_df
     if os.getenv("RUNNING_WITH_DATE_STRING", 'False') == 'True':
@@ -182,9 +184,9 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
     
     # Color td HTML elements according to their error status
     styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
-    
     # Color the dates surrounding a missing date yellow
     styled_problem_detected_df.apply_index(highlight_dates, axis=1)
+    
     return styled_problem_detected_df.to_html(escape=False)
 
 def build_prev_data_dict(row):
@@ -261,6 +263,7 @@ def highlight_errors(val):
         a given td HTML element.
     """
     color_dict = {'E': "red", "NR" : "gray", 'G' : "green"}
+    
     return f"background-color: {color_dict[val] if val in color_dict else 'gray'}"
 
 def highlight_dates(row):

@@ -15,8 +15,8 @@ services:
       # improperly, datetime.now().date() will be used. If commented, 
       # datetime.now().date() will be used to represent the current date.
       
-      - RUNNING_WITH_DATE_STRING=True
-      - DATE_STRING=2024-07-07
+      # - RUNNING_WITH_DATE_STRING=True
+      # - DATE_STRING=2024-07-07
     expose:
       - 5000
     command: /bin/bash -c "cron && gunicorn --bind 0.0.0.0:5000 app:app"
