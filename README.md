@@ -58,7 +58,7 @@ docker compose -f compose.nginx.yaml up -d --build
 
 
 ## Maintainer(s)
-Daniel Lang - langd052405@gmail.com
+Daniel Lang - daniel.lang@rowswellpark.org
 
 ## License
 All rights reserved by [Roswell Park Comprehensive Cancer Center](https://www.roswellpark.org) and the [Clinical Trial Development Division](https://www.ctdd.org) 
