@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from datetime import datetime, timedelta
 
+
+
 # Testing Constants:
 TEST_FILE_COUNT = 1000
 TEST_FILE_SIZE = 10000
@@ -34,12 +36,14 @@ def build_df_from_csv_files(path_to_csv_directory=DATA_DIRECTORY, testing=False)
     """
     if testing:
         add_test_data_to_prev_data()
+    else:
+        global PREV_DATA
+        PREV_DATA = {}
 
     df = pd.DataFrame()
     csv_files = os.listdir(path_to_csv_directory)
     # Order of csv_files could differ based on OS
     csv_files.sort()
-
     for file in csv_files[-DAYS_IN_MONTH:]:
 
         # Build current_file_df
@@ -122,7 +126,7 @@ def get_problem_detected_df_between_dates(problem_detected_df, current_date=date
         current_date to the date num_days_in_past.
     """
     prev_date, current_date = get_day_num_days_in_past(current_date=current_date, num_days_in_past=num_days_in_past)
-    
+
     return problem_detected_df.T.loc[prev_date:current_date].T
 
 def get_day_num_days_in_past(current_date=datetime.now().date(), num_days_in_past=1):
@@ -168,26 +172,27 @@ def get_html_for_problem_detected_df(problem_detected_df, study_id="", num_days_
     Returns:
         str: The HTML associated with the problem_detected_df
     """
+
     # Use either a date string "YYYY-MM-DD" or datetime.now().date() to build problem_detected_df
-    if os.getenv("RUNNING_WITH_DATE_STRING", 'False') == 'True':
+    RUNNING_WITH_DATE_STRING = os.environ.get("RUNNING_WITH_DATE_STRING", "False")
+    if RUNNING_WITH_DATE_STRING == 'True':
         DATE_STRING = os.getenv("DATE_STRING")
-        problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, current_date=DATE_STRING, num_days_in_past=num_days_in_past)
+        new_problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, current_date=DATE_STRING, num_days_in_past=num_days_in_past)
     else:
-        problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, num_days_in_past=num_days_in_past)
+        new_problem_detected_df = get_problem_detected_df_between_dates(problem_detected_df, num_days_in_past=num_days_in_past)
 
     
-    if problem_detected_df.empty:
+    if new_problem_detected_df.empty:
         return ""
     
     if study_id != "":
-        problem_detected_df = pd.DataFrame(problem_detected_df.loc[study_id]).T
+        new_problem_detected_df = pd.DataFrame(new_problem_detected_df.loc[study_id]).T
     
     # Color td HTML elements according to their error status
-    styled_problem_detected_df = problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
+    styled_problem_detected_df = new_problem_detected_df.style.apply(lambda x : x.map(highlight_errors))
     # Color the dates surrounding a missing date yellow
     styled_problem_detected_df.apply_index(highlight_dates, axis=1)
-    
-    return styled_problem_detected_df.to_html(escape=False)
+    return styled_problem_detected_df.to_html()
 
 def build_prev_data_dict(row):
     """
@@ -306,3 +311,4 @@ def add_test_data_to_prev_data():
     for test_study in test_file_information_studies:
         PREV_DATA[test_study] = {"N: File Count" : TEST_FILE_COUNT, 
                                   "N: Total File Size (MB)": TEST_FILE_SIZE}
+        
